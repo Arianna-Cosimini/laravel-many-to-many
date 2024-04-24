@@ -71,6 +71,12 @@
 
 
         <small>{{ $project->type?->type }}</small>
+        {{-- <small>{{$project->technology?->technology}}</small> --}}
+        <div class="d-flex gap-2 mb-5">
+            @foreach ($project->technologies as $technology)
+            <span class="badge rounded-pill">{{$technology->technology}}</span>
+            @endforeach
+          </div>
 
         <p>
             {{ $project->description }}
