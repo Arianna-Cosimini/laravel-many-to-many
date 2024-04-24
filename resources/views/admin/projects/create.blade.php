@@ -90,6 +90,22 @@
 
             </div>
 
+            <div class="mb-4">
+                <label class="mb-2" for="">technology</label>
+                <div class="d-flex gap-4">
+
+                    @foreach ($technologies as $technology)
+                        <div class="form-check ">
+
+                            <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" class="form-check-input"
+                                id="technology-{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+
+                            <label for="technology-{{ $technology->id }}" class="form-check-label">{{ $technology->technology }}</label>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
             <button class="btn btn-primary">Aggiungi</button>
 
         </form>
