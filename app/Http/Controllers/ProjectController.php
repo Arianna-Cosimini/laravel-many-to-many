@@ -6,6 +6,7 @@ use App\Models\project;
 use App\Models\Type;
 use App\Http\Requests\StoreprojectRequest;
 use App\Http\Requests\UpdateprojectRequest;
+use App\Models\Technology;
 use Illuminate\Support\Facades\Storage;
 
 use function PHPSTORM_META\type;
@@ -28,7 +29,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view("admin.projects.create", compact("types"));
+        $technologies = Technology::all();
+        return view("admin.projects.create", compact("types","technologies"));
     }
 
     /**
